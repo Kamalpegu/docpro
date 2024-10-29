@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            resize: vertical;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Document Generator</h1>
+    <form method="post">
+        <label for="text_input">Enter Text:</label><br>
+        <textarea id="text_input" name="text_input" rows="10" cols="50" required></textarea><br><br>
+        
+        <label for="keywords">Enter Keywords (comma-separated):</label><br>
+        <input type="text" id="keywords" name="keywords" required><br><br>
+
+        <label for="document_type">Enter Document Type:</label><br>
+        <input type="text" id="document_type" name="document_type" required><br><br>
+        
+        <input type="submit" value="Generate Document">
+    </form>
+    
+    {% if document %}
+        <h2>Generated Document:</h2>
+        <pre>{{ document }}</pre>
+    {% else %}
+        <h2>No document generated yet.</h2>
+    {% endif %}
+</body>
+</html>
